@@ -30,14 +30,9 @@ public class Album {
     }
 
     public boolean addToPlayList(int trackNumber, LinkedList<Song> playList) {
-        if ((trackNumber > songs.size()) || (trackNumber < 1)) {
-            return false;
-        }
-
         int index = trackNumber - 1;
-        Song song = songs.get(index);
-        if (song != null) {
-            return playList.add(song);
+        if ((index >= 0) && (index < songs.size())) {
+            return playList.add(songs.get(index));
         }
         return false;
     }
